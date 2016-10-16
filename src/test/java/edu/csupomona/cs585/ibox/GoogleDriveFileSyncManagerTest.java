@@ -175,4 +175,20 @@ public class GoogleDriveFileSyncManagerTest {
 		FileSyncManager.deleteFile(localFile);
 		verify(del).execute();
 	}
+	
+	@Test
+	public void getFileIdTest() throws IOException{
+		
+		files = mock(Files.class);
+		List request = mock(List.class);
+		
+		//Mock Get File ID
+		when(MockService.files()).thenReturn(files);
+		when(files.list()).thenReturn(request);
+		when(request.execute()).thenReturn(fileList);
+		
+		
+		assertEquals("test",FileSyncManager.getFileId(FileName));
+	}
+	
 }
