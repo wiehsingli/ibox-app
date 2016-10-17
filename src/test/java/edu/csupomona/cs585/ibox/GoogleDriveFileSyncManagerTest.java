@@ -1,8 +1,6 @@
 package edu.csupomona.cs585.ibox;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 
@@ -16,7 +14,6 @@ import static org.mockito.Mockito.*;
 
 import org.mockito.Mockito;
 
-import com.google.api.client.http.AbstractInputStreamContent;
 import com.google.api.client.http.FileContent;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.Drive.Files;
@@ -134,7 +131,7 @@ public class GoogleDriveFileSyncManagerTest {
 		
 		//mocking updatefile
 		when(MockService.files()).thenReturn(files);
-		when(files.update(any(String.class), any(File.class), any(FileContent.class))).thenReturn(update);
+		when(files.update(anyString(), any(File.class), any(FileContent.class))).thenReturn(update);
 		when(update.execute()).thenReturn(file);
 		
 		FileSyncManager.updateFile(localFile);
@@ -169,7 +166,7 @@ public class GoogleDriveFileSyncManagerTest {
 		
 		//mocking deleteFile
 		when(MockService.files()).thenReturn(files);
-		when(files.delete(any(String.class))).thenReturn(del);
+		when(files.delete(anyString())).thenReturn(del);
 		when(del.execute()).thenReturn(null);	//file is gone
 		
 		FileSyncManager.deleteFile(localFile);

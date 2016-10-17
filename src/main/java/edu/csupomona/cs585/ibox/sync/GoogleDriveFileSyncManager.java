@@ -50,6 +50,7 @@ public class GoogleDriveFileSyncManager implements FileSyncManager {
 			throw new FileNotFoundException();
 		} else {
 			service.files().delete(fileId).execute();
+			System.out.println("Delete has been called..");
 		}
 	}
 
