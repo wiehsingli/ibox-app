@@ -30,15 +30,14 @@ public class GoogleDriveFileSyncManagerIntegrationTest {
 		filePath= "C:/Users/Wie Hsing Li/Desktop/CS585/test.txt";
 	}
 
-//	@Test
+	@Test
 	public void addFileTest() throws IOException{
-		
+
 		//creating a file to add using addFile
 		file = new File(filePath);
-		FileWriter write = new FileWriter(file);
-		write.close();
+		file.createNewFile();
 		fileName = file.getName();
-		System.out.println("Created file: " + fileName);
+		System.out.println("Created file: " + fileName + " in " + filePath);
 		
 		//calling addFile with created file
 		FileSyncManager.addFile(file);
@@ -49,29 +48,28 @@ public class GoogleDriveFileSyncManagerIntegrationTest {
 		System.out.println("Deleted file after testing");
 	}
 	
-//	@Test
+	@Test
 	public void updateFileTest() throws IOException{
 		
 		//creating a file
 		file = new File(filePath);
-		FileWriter write = new FileWriter(file);
-		write.close();
-		System.out.println("File created");
-		fileName = file.getName();
+		file.createNewFile();
 		String updateText = "test update";
 		
-			//Need to change file to test update
-			BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
-			writer.write(updateText);
-			writer.flush();
-			writer.close();
+		FileSyncManager.addFile(file);
+		
+		//Need to change file to test update
+		BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+		writer.write(updateText);
+		writer.flush();
+		writer.close();
 			
-			//caling update File
-			FileSyncManager.updateFile(file);
+		//calling update File
+		FileSyncManager.updateFile(file);
 			
-			System.out.println("File was modified and updated successfully");
-			file.delete();	//delete file after done updating
-			System.out.println("Deleted file after testing");
+		System.out.println("File was modified and updated successfully");
+		file.delete();	//delete file after done updating
+		System.out.println("Deleted file after testing");
 	}
 	
 	@Test
@@ -79,24 +77,21 @@ public class GoogleDriveFileSyncManagerIntegrationTest {
 		
 		//creating a file
 		file = new File(filePath);
-		FileWriter write = new FileWriter(file);
-		write.close();
+		file.createNewFile();
 		fileName = file.getName();
-		System.out.println("Created file: " + fileName);
+		System.out.println("Created file: " + fileName + " in " + filePath);
 		
 		//adding file to be deleted
-		FileSyncManager.addFile(file);
+		FileSyncManager.addFile(file); 
 		
 		//deleting file using FileSyncManager
-		FileSyncManager.deleteFile(file);  //delete not working properly.. why?
+		FileSyncManager.deleteFile(file);  
 		
-		file.delete(); //should not have to be used..
+		file.delete();
 		
 		assertFalse(file.exists());
 		
 		System.out.println("file deleted sucessfully");
-		System.out.println("file: " + FileSyncManager.getFileId(fileName));
-		
 	}
 
 }
