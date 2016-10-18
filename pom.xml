@@ -52,7 +52,8 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
+        <artifactId>maven-surefile-plguin</artifactId>
+        <version>2.19.1</version>
         <configuration>
           <!-- JDK version; If you are using higher version, free feel to update it. -->
           <source>1.7</source>

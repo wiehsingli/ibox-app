@@ -30,7 +30,7 @@ public class GoogleDriveFileSyncManagerIntegrationTest {
 		filePath= "C:/Users/Wie Hsing Li/Desktop/CS585/test.txt";
 	}
 
-	@Test
+//	@Test
 	public void addFileTest() throws IOException{
 
 		//creating a file to add using addFile
@@ -48,7 +48,7 @@ public class GoogleDriveFileSyncManagerIntegrationTest {
 		System.out.println("Deleted file after testing");
 	}
 	
-	@Test
+//	@Test
 	public void updateFileTest() throws IOException{
 		
 		//creating a file
@@ -72,7 +72,7 @@ public class GoogleDriveFileSyncManagerIntegrationTest {
 		System.out.println("Deleted file after testing");
 	}
 	
-	@Test
+//	@Test
 	public void deleteFileTest() throws IOException{
 		
 		//creating a file
