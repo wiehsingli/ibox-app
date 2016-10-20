@@ -56,16 +56,6 @@ public class GoogleDriveFileSyncManagerTest {
 		fileList.setItems(ListofFiles);
 	}
 	
-//	@Override
-//	public void addFile(java.io.File localFile) throws IOException {
-//		//Insert a file
-//		File body = new File();
-//		body.setTitle(localFile.getName());
-//		FileContent mediaContent = new FileContent("*/*", localFile);
-//		File file = service.files().insert(body, mediaContent).execute();
-//		System.out.println("File ID: " + file.getId());
-//	}	
-	
 	
 	@Test
 	public void addFileTest() throws IOException{
@@ -86,34 +76,6 @@ public class GoogleDriveFileSyncManagerTest {
 		verify(ins).execute();
 	}
 	
-//	public String getFileId(String fileName) {
-//		try {
-//			List request = service.files().list();
-//			FileList files = request.execute();
-//			for(File file : files.getItems()) {
-//				if (file.getTitle().equals(fileName)) {
-//					return file.getId();
-//				}
-//			}
-//		} catch (IOException e) {
-//			System.out.println("An error occurred: " + e);
-//		}
-//		return null;
-//	}
-	
-	
-//	public void updateFile(java.io.File localFile) throws IOException {
-//		String fileId = getFileId(localFile.getName());
-//		if (fileId == null) {
-//			addFile(localFile);
-//		} else {
-//			File body = new File();
-//			body.setTitle(localFile.getName());
-//			FileContent mediaContent = new FileContent("*/*", localFile);
-//			File file = service.files().update(fileId, body, mediaContent).execute();
-//			System.out.println("File ID: " + file.getId());
-//		}
-//	}
 	
 	
 	@Test
@@ -142,15 +104,6 @@ public class GoogleDriveFileSyncManagerTest {
 	}
 	
 	
-//	public void deleteFile(java.io.File localFile) throws IOException {
-//		String fileId = getFileId(localFile.getName());
-//		if (fileId == null) {
-//			throw new FileNotFoundException();
-//		} else {
-//			service.files().delete(fileId).execute();
-//		}
-//	}
-
 	@Test
 	public void deleteFileTest() throws IOException{
 		
